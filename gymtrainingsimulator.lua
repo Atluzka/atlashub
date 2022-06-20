@@ -12,7 +12,7 @@ local Window = Library:CreateWindow({
 
 local Tabs = {
     Main = Window:AddTab('Main'), 
-    UISettings = Window:AddTab('UI Settings'),
+    ['UI Settings'] = Window:AddTab('UI Settings'),
 }
 
 local autofarm = Tabs.Main:AddLeftGroupbox('Auto Farm')
@@ -123,12 +123,28 @@ local cyberisland = teleports:AddButton('Cyber Island', function()
     p1.CFrame = CFrame.new(-1125.8335, -21.4424629, 317.39679, 0.819155693, -2.03443555e-08, 0.573571265, 2.60415582e-08, 1, -1.72207781e-09, -0.573571265, 1.63473395e-08, 0.819155693)
 end)
 
+Library:OnUnload(function()
+    print('Unloaded!')
+    Library.Unloaded = true
+end)
+
 Library:SetWatermarkVisibility(true)
 Library:SetWatermark('Atlas Hub | Gym Training Simulator')
 Library.KeybindFrame.Visible = false;
 
+local MenuGroup = Tabs['UI Settings']:AddLeftGroupbox('Menu')
 
-local UI = Tabs.UISettings:AddLeftGroupbox('UI')
+MenuGroup:AddButton('Unload', function() Library:Unload() end)
+MenuGroup:AddLabel('Menu bind'):AddKeyPicker('MenuKeybind', { Default = 'End', NoUI = true, Text = 'Menu keybind' }) 
+MenuGroup:AddLabel('discord.gg/8Jur97vnfX')
 
-UI:AddButton('Unload', function() Library:Unload() end)
-UI:AddLabel('discord.gg/8Jur97vnfX')
+Library.ToggleKeybind = Options.MenuKeybind
+ThemeManager:SetLibrary(Library)
+SaveManager:SetLibrary(Library)
+SaveManager:IgnoreThemeSettings() 
+SaveManager:SetIgnoreIndexes({ 'MenuKeybind' }) 
+ThemeManager:SetFolder('AtlasHub')
+SaveManager:SetFolder('AtlasHub/legends_of_speed')
+SaveManager:BuildConfigSection(Tabs['UI Settings']) 
+
+ThemeManager:ApplyToTab(Tabs['UI Settings'])
