@@ -12,7 +12,7 @@ local Window = Library:CreateWindow({
 
 local Tabs = {
     Main = Window:AddTab('Main'), 
-    UISettings = Window:AddTab('UI Settings'),
+    ['UI Settings'] = Window:AddTab('UI Settings'),
 }
 
 local LeftGroupBox = Tabs.Main:AddLeftGroupbox('Farm')
@@ -94,13 +94,28 @@ end)
 
 Toggles.AutoHoopFarm:SetValue(false)
 
+Library:OnUnload(function()
+    print('Unloaded!')
+    Library.Unloaded = true
+end)
 
 Library:SetWatermarkVisibility(true)
 Library:SetWatermark('Atlas Hub | Legends of Speed')
 Library.KeybindFrame.Visible = false;
 
+local MenuGroup = Tabs['UI Settings']:AddLeftGroupbox('Menu')
 
-local UI = Tabs.UISettings:AddLeftGroupbox('UI')
+MenuGroup:AddButton('Unload', function() Library:Unload() end)
+MenuGroup:AddLabel('Menu bind'):AddKeyPicker('MenuKeybind', { Default = 'End', NoUI = true, Text = 'Menu keybind' }) 
+MenuGroup:AddLabel('discord.gg/8Jur97vnfX')
 
-UI:AddButton('Unload', function() Library:Unload() end)
-UI:AddLabel('discord.gg/8Jur97vnfX')
+Library.ToggleKeybind = Options.MenuKeybind
+ThemeManager:SetLibrary(Library)
+SaveManager:SetLibrary(Library)
+SaveManager:IgnoreThemeSettings() 
+SaveManager:SetIgnoreIndexes({ 'MenuKeybind' }) 
+ThemeManager:SetFolder('AtlasHub')
+SaveManager:SetFolder('AtlasHub/legends_of_speed')
+SaveManager:BuildConfigSection(Tabs['UI Settings']) 
+
+ThemeManager:ApplyToTab(Tabs['UI Settings'])
