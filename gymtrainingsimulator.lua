@@ -131,4 +131,4 @@ Library.KeybindFrame.Visible = false;
 local UI = Tabs.UISettings:AddLeftGroupbox('UI')
 
 UI:AddButton('Unload', function() Library:Unload() end)
-UI:AddTooltip('discord.gg/8Jur97vnfX')
+UI:AddLabel('discord.gg/8Jur97vnfX')
