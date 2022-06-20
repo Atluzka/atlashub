@@ -35,6 +35,26 @@ end)
 
 Toggles.AutoTap:SetValue(false)
 
+autofarm:AddToggle('AutoTraining', {
+    Text = 'Auto Training',
+    Default = false,
+    Tooltip = 'Automatically trains for you (costs gems)',
+})
+
+
+Toggles.AutoTraining:OnChanged(function()
+    while(Toggles.AutoTraining.Value == true) do
+        local args = {
+            [1] = "Training",
+            [2] = workspace.__WORKSPACE.__Interact.Training
+        }
+        game:GetService("ReplicatedStorage").Remotes.Training:FireServer(unpack(args))
+        wait(0.05)
+    end
+end)
+
+Toggles.AutoTraining:SetValue(false)
+
 autofarm:AddSlider('RebirthsNum', {
     Text = 'Choose which rebirth to buy',
     Default = 1,
