@@ -54,6 +54,9 @@ Toggles.AutoTraining:OnChanged(function()
 end)
 
 Toggles.AutoTraining:SetValue(false)
+autofarm:AddLabel('You have to be in the training')
+autofarm:AddLabel('area for it to work')
+autofarm:AddLabel('')
 
 autofarm:AddSlider('RebirthsNum', {
     Text = 'Choose which rebirth to buy',
