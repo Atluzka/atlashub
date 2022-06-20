@@ -83,7 +83,7 @@ SaveManager:SetLibrary(Library)
 SaveManager:IgnoreThemeSettings() 
 SaveManager:SetIgnoreIndexes({ 'MenuKeybind' }) 
 ThemeManager:SetFolder('AtlasHub')
-SaveManager:SetFolder('AtlasHub/legends_of_speed')
+SaveManager:SetFolder('AtlasHub/crossbar_challenge_simulator')
 SaveManager:BuildConfigSection(Tabs['UI Settings']) 
 
 ThemeManager:ApplyToTab(Tabs['UI Settings'])
