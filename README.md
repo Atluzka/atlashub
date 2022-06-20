@@ -12,3 +12,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/Atluzka/atlashub/main
 - KRNL
 
 There might be other executors that work.
+
+# Other
+
+If you want updates/change-logs about the hub, you can join my discord [here](https://discord.gg/e8hX7qZydv)
