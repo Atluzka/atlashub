@@ -1,2 +1,3 @@
-# atlashub
-Roblox script hub with multiple game support
+# Atlas Hub
+
+A open-source multiple game support script hub, made with LinoriaLib (very clean)
