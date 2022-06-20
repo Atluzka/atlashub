@@ -167,7 +167,7 @@ SaveManager:SetLibrary(Library)
 SaveManager:IgnoreThemeSettings() 
 SaveManager:SetIgnoreIndexes({ 'MenuKeybind' }) 
 ThemeManager:SetFolder('AtlasHub')
-SaveManager:SetFolder('AtlasHub/legends_of_speed')
+SaveManager:SetFolder('AtlasHub/gym_training_simulator')
 SaveManager:BuildConfigSection(Tabs['UI Settings']) 
 
 ThemeManager:ApplyToTab(Tabs['UI Settings'])
