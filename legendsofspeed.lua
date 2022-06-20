@@ -142,6 +142,7 @@ Library:SetWatermark('Atlas Hub | Legends of Speed')
 Library.KeybindFrame.Visible = false;
 
 
-local MenuGroup = Tabs.UISettings:AddLeftGroupbox('UI')
+local UI = Tabs.UISettings:AddLeftGroupbox('UI')
 
-MenuGroup:AddButton('Unload', function() Library:Unload() end)
+UI:AddButton('Unload', function() Library:Unload() end)
+UI:AddTooltip('discord.gg/8Jur97vnfX')
