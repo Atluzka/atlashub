@@ -84,7 +84,7 @@ Toggles.AutoHoopFarm:OnChanged(function()
         for i, v in pairs(muffin) do
             p1.CFrame = v.CFrame
             p1.Anchored = false
-            wait(0.01)
+            wait(0.003)
             p1.Anchored = true
             wait(0.3)
         end
