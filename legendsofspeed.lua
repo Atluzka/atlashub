@@ -24,44 +24,14 @@ LeftGroupBox:AddToggle('AutoCollectOrb', {
 })
 
 Toggles.AutoCollectOrb:OnChanged(function()
-    while(Toggles.AutoCollectOrb.Value == true) do -- Please do no look at this fucking mess KEKW
-        game.ReplicatedStorage.rEvents.orbEvent:FireServer("collectOrb", "Blue Orb", "City")
-        game.ReplicatedStorage.rEvents.orbEvent:FireServer("collectOrb", "Orange Orb", "City")
-        game.ReplicatedStorage.rEvents.orbEvent:FireServer("collectOrb", "Red Orb", "City")
-        game.ReplicatedStorage.rEvents.orbEvent:FireServer("collectOrb", "Yellow Orb", "City")
-        game.ReplicatedStorage.rEvents.orbEvent:FireServer("collectOrb", "Blue Orb", "City")
-        game.ReplicatedStorage.rEvents.orbEvent:FireServer("collectOrb", "Orange Orb", "City")
-        game.ReplicatedStorage.rEvents.orbEvent:FireServer("collectOrb", "Red Orb", "City")
-        game.ReplicatedStorage.rEvents.orbEvent:FireServer("collectOrb", "Yellow Orb", "City")
-        game.ReplicatedStorage.rEvents.orbEvent:FireServer("collectOrb", "Blue Orb", "City")
-        game.ReplicatedStorage.rEvents.orbEvent:FireServer("collectOrb", "Orange Orb", "City")
-        game.ReplicatedStorage.rEvents.orbEvent:FireServer("collectOrb", "Red Orb", "City")
-        game.ReplicatedStorage.rEvents.orbEvent:FireServer("collectOrb", "Yellow Orb", "City")
-        game.ReplicatedStorage.rEvents.orbEvent:FireServer("collectOrb", "Blue Orb", "City")
-        game.ReplicatedStorage.rEvents.orbEvent:FireServer("collectOrb", "Orange Orb", "City")
-        game.ReplicatedStorage.rEvents.orbEvent:FireServer("collectOrb", "Red Orb", "City")
-        game.ReplicatedStorage.rEvents.orbEvent:FireServer("collectOrb", "Yellow Orb", "City")
-        game.ReplicatedStorage.rEvents.orbEvent:FireServer("collectOrb", "Blue Orb", "City")
-        game.ReplicatedStorage.rEvents.orbEvent:FireServer("collectOrb", "Orange Orb", "City")
-        game.ReplicatedStorage.rEvents.orbEvent:FireServer("collectOrb", "Red Orb", "City")
-        game.ReplicatedStorage.rEvents.orbEvent:FireServer("collectOrb", "Yellow Orb", "City")
-        game.ReplicatedStorage.rEvents.orbEvent:FireServer("collectOrb", "Blue Orb", "City")
-        game.ReplicatedStorage.rEvents.orbEvent:FireServer("collectOrb", "Orange Orb", "City")
-        game.ReplicatedStorage.rEvents.orbEvent:FireServer("collectOrb", "Red Orb", "City")
-        game.ReplicatedStorage.rEvents.orbEvent:FireServer("collectOrb", "Yellow Orb", "City")
-        game.ReplicatedStorage.rEvents.orbEvent:FireServer("collectOrb", "Blue Orb", "City")
-        game.ReplicatedStorage.rEvents.orbEvent:FireServer("collectOrb", "Orange Orb", "City")
-        game.ReplicatedStorage.rEvents.orbEvent:FireServer("collectOrb", "Red Orb", "City")
-        game.ReplicatedStorage.rEvents.orbEvent:FireServer("collectOrb", "Yellow Orb", "City")
-        game.ReplicatedStorage.rEvents.orbEvent:FireServer("collectOrb", "Blue Orb", "City")
-        game.ReplicatedStorage.rEvents.orbEvent:FireServer("collectOrb", "Orange Orb", "City")
-        game.ReplicatedStorage.rEvents.orbEvent:FireServer("collectOrb", "Red Orb", "City")
-        game.ReplicatedStorage.rEvents.orbEvent:FireServer("collectOrb", "Yellow Orb", "City")
-        game.ReplicatedStorage.rEvents.orbEvent:FireServer("collectOrb", "Blue Orb", "City")
-        game.ReplicatedStorage.rEvents.orbEvent:FireServer("collectOrb", "Orange Orb", "City")
-        game.ReplicatedStorage.rEvents.orbEvent:FireServer("collectOrb", "Red Orb", "City")
-        game.ReplicatedStorage.rEvents.orbEvent:FireServer("collectOrb", "Yellow Orb", "City")
-        wait(0.00002) -- oh god wtf is this
+    orbsTable = {"Blue Orb", "Orange Orb", "Red Orb", "Yellow Orb"}
+    while(Toggles.AutoCollectOrb.Value == true) do 
+        for _, v in ipairs(orbsTable) do
+            for i=0, 50 do
+                game.ReplicatedStorage.rEvents.orbEvent:FireServer("collectOrb", v, "City")
+            end
+        end
+        wait(0.003)
     end
 end)
 
@@ -75,23 +45,11 @@ LeftGroupBox:AddToggle('AutoCollectGems', {
 })
 
 Toggles.AutoCollectGems:OnChanged(function()
-    while(Toggles.AutoCollectGems.Value == true) do -- Damn this is another mess
-        game.ReplicatedStorage.rEvents.orbEvent:FireServer("collectOrb", "Gem", "City")
-        game.ReplicatedStorage.rEvents.orbEvent:FireServer("collectOrb", "Gem", "City")
-        game.ReplicatedStorage.rEvents.orbEvent:FireServer("collectOrb", "Gem", "City")
-        game.ReplicatedStorage.rEvents.orbEvent:FireServer("collectOrb", "Gem", "City")
-        game.ReplicatedStorage.rEvents.orbEvent:FireServer("collectOrb", "Gem", "City")
-        game.ReplicatedStorage.rEvents.orbEvent:FireServer("collectOrb", "Gem", "City")
-        game.ReplicatedStorage.rEvents.orbEvent:FireServer("collectOrb", "Gem", "City")
-        game.ReplicatedStorage.rEvents.orbEvent:FireServer("collectOrb", "Gem", "City")
-        game.ReplicatedStorage.rEvents.orbEvent:FireServer("collectOrb", "Gem", "City")
-        game.ReplicatedStorage.rEvents.orbEvent:FireServer("collectOrb", "Gem", "City")
-        game.ReplicatedStorage.rEvents.orbEvent:FireServer("collectOrb", "Gem", "City")
-        game.ReplicatedStorage.rEvents.orbEvent:FireServer("collectOrb", "Gem", "City")
-        game.ReplicatedStorage.rEvents.orbEvent:FireServer("collectOrb", "Gem", "City")
-        game.ReplicatedStorage.rEvents.orbEvent:FireServer("collectOrb", "Gem", "City")
-        game.ReplicatedStorage.rEvents.orbEvent:FireServer("collectOrb", "Gem", "City")
-        wait(0.00002) -- kekw
+    while(Toggles.AutoCollectGems.Value == true) do
+        for i=0, 50 do
+            game.ReplicatedStorage.rEvents.orbEvent:FireServer("collectOrb", "Gem", "City")
+        end
+        wait(0.003)
     end
 end)
 
