@@ -9,3 +9,7 @@ end
 if game.PlaceId == 9297410766 then
     loadstring(game:HttpGet("https://raw.githubusercontent.com/Atluzka/atlashub/main/crossbarchallengesimulator.lua"))()
 end
+
+if game.PlaceId == 537413528 then
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Atluzka/atlashub/main/buildaboatfortreasure.lua"))()
+end
