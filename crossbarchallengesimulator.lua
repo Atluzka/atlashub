@@ -38,29 +38,16 @@ end)
 
 Toggles.AutoShoot:SetValue(false)
 
-LeftGroupBox:AddToggle('AntiLag', {
-    Text = 'Anti Lag',
-    Default = false,
-    Tooltip = 'Deletes your thrown balls',
-})
-
-Toggles.AntiLag:OnChanged(function()
-    while(Toggles.AntiLag.Value == true) do
-        local localplayer = game.Players.LocalPlayer.Name
-        local v2 = game.Workspace:GetChildren()
+local antilag = LeftGroupBox:AddButton('Delete Balls', function()
+    local localplayer = game.Players.LocalPlayer.Name
+    local v2 = game.Workspace:GetChildren()
         
-        for i, v in pairs(v2) do
-            if v.Name == localplayer .. "Ball" then
-                v:Remove()
-            end
+    for i, v in pairs(v2) do
+        if v.Name == localplayer .. "Ball" then
+            v:Remove()
         end
-        wait(2)
     end
 end)
-
-Toggles.AntiLag:SetValue(false)
-
-
 
 Library:OnUnload(function()
     print('Unloaded!')
@@ -75,7 +62,7 @@ local MenuGroup = Tabs['UI Settings']:AddLeftGroupbox('Menu')
 
 MenuGroup:AddButton('Unload', function() Library:Unload() end)
 MenuGroup:AddLabel('Menu bind'):AddKeyPicker('MenuKeybind', { Default = 'End', NoUI = true, Text = 'Menu keybind' }) 
-MenuGroup:AddLabel('discord.gg/e8hX7qZydv')
+MenuGroup:AddLabel('discord.gg/8Jur97vnfX')
 
 Library.ToggleKeybind = Options.MenuKeybind
 ThemeManager:SetLibrary(Library)
@@ -83,7 +70,7 @@ SaveManager:SetLibrary(Library)
 SaveManager:IgnoreThemeSettings() 
 SaveManager:SetIgnoreIndexes({ 'MenuKeybind' }) 
 ThemeManager:SetFolder('AtlasHub')
-SaveManager:SetFolder('AtlasHub/crossbar_challenge_simulator')
+SaveManager:SetFolder('AtlasHub/legends_of_speed')
 SaveManager:BuildConfigSection(Tabs['UI Settings']) 
 
 ThemeManager:ApplyToTab(Tabs['UI Settings'])
