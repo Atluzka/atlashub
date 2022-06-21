@@ -11,6 +11,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/Atluzka/atlashub/main
 - Synapse X
 - KRNL
 - Comet 2
+- Novaline
 
 There might be other executors that work.
 
